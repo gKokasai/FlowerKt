@@ -2,13 +2,23 @@ plugins {
     id(GradlePlugin.kotlin_jvm) version Version.kotlin
 }
 
-group = Project.group
-version = Project.version
-
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
 
-dependencies {
-    implementation(Libraries.Kotlin.stdlib)
+subprojects {
+    apply(plugin = "kotlin")
+
+    group = Project.group
+    version = Project.version
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        implementation(Libraries.Kotlin.stdlib)
+    }
 }
