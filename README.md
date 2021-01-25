@@ -1,5 +1,7 @@
 # FlowerKt
 
+[![Bintray](https://img.shields.io/bintray/v/kokasai/maven/FlowerKt-core)](https://bintray.com/kokasai/maven/FlowerKt-core)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.4.20-blue.svg?logo=kotlin)](http://kotlinlang.org)
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 
 ## 開発
