@@ -3,6 +3,7 @@ package com.kokasai.flowerkt
 import com.kokasai.flowerkt.module.InstallKtorProcess
 import com.kokasai.flowerkt.module.LaunchProcess
 import com.kokasai.flowerkt.route.RouteBuilder
+import io.ktor.application.Application
 import io.ktor.routing.routing
 import io.ktor.server.engine.ApplicationEngine
 import io.ktor.server.engine.ApplicationEngineFactory
@@ -29,6 +30,19 @@ interface FlowerKt : LaunchProcess, InstallKtorProcess {
      * サーバーのエンジン
      */
     val engine: ApplicationEngineFactory<ApplicationEngine, ApplicationEngine.Configuration>
+
+    /**
+     * Application::install を実行します
+     *
+     * installKtor の実行順は継承側で定義する必要があります
+     * ```
+     * override fun Application.installKtor() {
+     *     super<Use#A>.installKtor()
+     *     super<Use#B>.installKtor()
+     * }
+     * ```
+     */
+    override fun Application.installKtor() {}
 
     /**
      * サーバーを起動します
