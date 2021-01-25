@@ -47,6 +47,15 @@ interface FlowerKt : LaunchProcess, InstallKtorProcess {
     /**
      * サーバーを起動します
      *
+     * launch の実行順は継承側で定義する必要があります
+     * ```
+     * override fun launch() {
+     *     super<Use#A>.launch()
+     *     super<Use#B>.launch()
+     *     super<FlowerKt>.launch()
+     * }
+     * ```
+     *
      * `main` 関数でこの関数を呼び出してください
      */
     override fun launch() {
