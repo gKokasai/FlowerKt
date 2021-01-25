@@ -1,8 +1,8 @@
 package com.kokasai.flowerkt
 
+import com.kokasai.flowerkt.module.InstallKtorProcess
 import com.kokasai.flowerkt.module.LaunchProcess
 import com.kokasai.flowerkt.route.RouteBuilder
-import io.ktor.application.Application
 import io.ktor.routing.routing
 import io.ktor.server.engine.ApplicationEngine
 import io.ktor.server.engine.ApplicationEngineFactory
@@ -10,7 +10,7 @@ import io.ktor.server.engine.embeddedServer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-interface FlowerKt : LaunchProcess {
+interface FlowerKt : LaunchProcess, InstallKtorProcess {
     companion object {
         val LOGGER: Logger = LoggerFactory.getLogger("FlowerKt")
     }
@@ -21,24 +21,9 @@ interface FlowerKt : LaunchProcess {
     val port: Int
 
     /**
-     * Ktor の機能をインストールします
-     */
-    fun Application.installKtorFeature()
-
-    /**
      * ルートビルダーでルートの登録をします
      */
     val routeBuilder: RouteBuilder
-
-    /**
-     * モジュールの設定をします
-     */
-    private fun Application.setupServerModule() {
-        installKtorFeature()
-        routing {
-            routeBuilder.build(this)
-        }
-    }
 
     /**
      * サーバーのエンジン
@@ -50,7 +35,10 @@ interface FlowerKt : LaunchProcess {
      */
     private fun startServer() {
         embeddedServer(engine, port) {
-            setupServerModule()
+            installKtor()
+            routing {
+                routeBuilder.build(this)
+            }
         }.start()
     }
 
