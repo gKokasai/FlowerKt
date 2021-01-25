@@ -1,6 +1,6 @@
-package com.kokasai.flowerkt.database
+package com.kokasai.flowerkt.module
 
-import com.kokasai.flowerkt.module.UseModule
+import com.kokasai.flowerkt.database.DatabaseProvider
 
 interface UseDatabase : UseModule {
     /**

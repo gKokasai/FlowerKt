@@ -1,6 +1,6 @@
-package com.kokasai.flowerkt.file
+package com.kokasai.flowerkt.module
 
-import com.kokasai.flowerkt.module.UseModule
+import com.kokasai.flowerkt.file.FileProvider
 
 interface UseFile : UseModule {
     /**

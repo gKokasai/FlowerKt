@@ -1,3 +1,3 @@
-package com.kokasai.flowerkt.database
+package com.kokasai.flowerkt.module
 
 interface UseExposedDatabase : UseDatabase
