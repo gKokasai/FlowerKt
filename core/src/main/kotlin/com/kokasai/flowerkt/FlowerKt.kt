@@ -32,22 +32,15 @@ interface FlowerKt : LaunchProcess, InstallKtorProcess {
 
     /**
      * サーバーを起動します
+     *
+     * `main` 関数でこの関数を呼び出してください
      */
-    private fun startServer() {
+    override fun launch() {
         embeddedServer(engine, port) {
             installKtor()
             routing {
                 routeBuilder.build(this)
             }
         }.start()
-    }
-
-    /**
-     * プロセスを開始します
-     *
-     * `main` 関数でこの関数を呼び出してください
-     */
-    override fun launch() {
-        startServer()
     }
 }
