@@ -1,4 +1,4 @@
-name: reviewdog
+name: Check Ktlint On PullRequest
 on: [pull_request]
 jobs:
   ktlint:
