@@ -36,13 +36,13 @@ interface FlowerKt : LaunchProcess, InstallKtorProcess {
      *
      * installKtor の実行順は継承側で定義する必要があります
      * ```
-     * override fun Application.installKtor() {
-     *     super<Use#A>.installKtor()
-     *     super<Use#B>.installKtor()
+     * override fun installKtor(application: Application) {
+     *     super<Use#A>.installKtor(application)
+     *     super<Use#B>.installKtor(application)
      * }
      * ```
      */
-    override fun Application.installKtor() {}
+    override fun installKtor(application: Application)
 
     /**
      * サーバーを起動します
@@ -60,7 +60,7 @@ interface FlowerKt : LaunchProcess, InstallKtorProcess {
      */
     override fun launch() {
         embeddedServer(engine, port) {
-            installKtor()
+            installKtor(this)
             routing {
                 routeBuilder.build(this)
             }

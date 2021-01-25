@@ -7,7 +7,7 @@ import io.ktor.websocket.WebSockets
 interface UseWebsocket : InstallKtorProcess {
     val webSocketsOptions: WebSockets.WebSocketOptions.() -> Unit
 
-    override fun Application.installKtor() {
-        install(WebSockets, webSocketsOptions)
+    override fun installKtor(application: Application) {
+        application.install(WebSockets, webSocketsOptions)
     }
 }

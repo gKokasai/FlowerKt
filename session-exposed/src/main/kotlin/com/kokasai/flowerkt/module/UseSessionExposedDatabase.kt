@@ -24,7 +24,7 @@ interface UseSessionExposedDatabase : UseExposedDatabase, LaunchProcess, Install
 
     val sessionsConfiguration: Sessions.Configuration.() -> Unit
 
-    override fun Application.installKtor() {
-        install(Sessions, sessionsConfiguration)
+    override fun installKtor(application: Application) {
+        application.install(Sessions, sessionsConfiguration)
     }
 }
