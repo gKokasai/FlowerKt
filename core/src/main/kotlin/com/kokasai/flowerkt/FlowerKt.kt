@@ -1,6 +1,6 @@
 package com.kokasai.flowerkt
 
-import com.kokasai.flowerkt.module.OnLaunch
+import com.kokasai.flowerkt.module.LaunchProcess
 import com.kokasai.flowerkt.route.RouteBuilder
 import io.ktor.application.Application
 import io.ktor.routing.Routing
@@ -11,7 +11,7 @@ import io.ktor.server.engine.embeddedServer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-abstract class FlowerKt : OnLaunch {
+abstract class FlowerKt : LaunchProcess {
     companion object {
         val LOGGER: Logger = LoggerFactory.getLogger("FlowerKt")
     }
@@ -63,17 +63,11 @@ abstract class FlowerKt : OnLaunch {
     }
 
     /**
-     * サーバー起動前にする処理
-     */
-    override fun onLaunch() {}
-
-    /**
      * プロセスを開始します
      *
      * `main` 関数でこの関数を呼び出してください
      */
-    fun launch() {
-        onLaunch()
+    override fun launch() {
         startServer()
     }
 }
