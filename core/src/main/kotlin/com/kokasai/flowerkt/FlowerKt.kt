@@ -5,7 +5,6 @@ import com.kokasai.flowerkt.module.LaunchProcess
 import com.kokasai.flowerkt.route.RouteBuilder
 import io.ktor.application.Application
 import io.ktor.routing.routing
-import io.ktor.server.engine.ApplicationEngine
 import io.ktor.server.engine.ApplicationEngineFactory
 import io.ktor.server.engine.embeddedServer
 import org.slf4j.Logger
@@ -29,7 +28,7 @@ interface FlowerKt : LaunchProcess, InstallKtorProcess {
     /**
      * サーバーのエンジン
      */
-    val engine: ApplicationEngineFactory<ApplicationEngine, ApplicationEngine.Configuration>
+    val engine: ApplicationEngineFactory<*, *>
 
     /**
      * Application::install を実行します
