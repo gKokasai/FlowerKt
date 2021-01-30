@@ -1,7 +1,6 @@
 rootProject.name = "FlowerKt"
 
 include(
-    "auth",
     "core",
     "css",
     "database",
@@ -10,6 +9,5 @@ include(
     "file",
     "file-webdav",
     "html",
-    "session-exposed",
-    "websocket"
+    "session-exposed"
 )
